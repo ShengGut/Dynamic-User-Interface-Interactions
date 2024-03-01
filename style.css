@@ -60,3 +60,14 @@ nav ul {
 .dropdown-menu li {
   padding: 4px;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    justify-content: center;
+    margin-right: 0;
+  }
+  .dropdown-menu {
+    position: relative;
+    display: none;
+  }
+}
