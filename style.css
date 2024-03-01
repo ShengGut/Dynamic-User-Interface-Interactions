@@ -49,9 +49,9 @@ nav ul {
   display: block;
 }
 
-.dropdown:hover .dropdown-menu {
+/* .dropdown:hover .dropdown-menu { with CSS
   display: block;
-}
+} */
 
 .visible {
   display: block;

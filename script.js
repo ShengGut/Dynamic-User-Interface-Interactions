@@ -1,14 +1,17 @@
-// Reusable function to toggle visibility of dropdown menus
+// hovers over the menu and it will drop down the list of tabs
 function toggleDropdown() {
-  var dropdowns = document.querySelectorAll('.dropdown')
+  let dropdowns = document.querySelectorAll('.dropdown')
 
   dropdowns.forEach(function (dropdown) {
-    dropdown.addEventListener('click', function (event) {
-      var menu = this.querySelector('.dropdown-menu')
-      menu.classList.toggle('visible')
+    let menu = dropdown.querySelector('.dropdown-menu')
+
+    dropdown.addEventListener('mouseover', function (event) {
+      menu.style.display = 'block'
+    })
+    dropdown.addEventListener('mouseout', function (event) {
+      menu.style.display = 'none'
     })
   })
 }
 
-// Initialize dropdown toggles
 toggleDropdown()
