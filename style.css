@@ -67,7 +67,7 @@ nav ul {
     margin-right: 0;
   }
   .dropdown-menu {
-    position: relative;
+    position: fixed;
     display: none;
   }
 }
