@@ -128,3 +128,23 @@ dotsNav.addEventListener('click', (e) => {
   console.log(targetIndex)
   hideShowArrows(slides, prevButton, nextButton, targetIndex)
 })
+
+// Will advance slide every 5 second and reset once it reaches the end
+function autoAdvanceSlides() {
+  let currentIndex = 0
+  const interval = setInterval(() => {
+    const nextIndex = (currentIndex + 1) % slides.length // if currentIndex + 1 is equal to or greater, then wrap to the beginning of array
+    moveToSlide(track, slides[currentIndex], slides[nextIndex])
+    updateDots(dotsNav.querySelector('.current-slide'), dots[nextIndex])
+    hideShowArrows(slides, prevButton, nextButton, nextIndex)
+    currentIndex = nextIndex
+  }, 5000)
+  // Stop auto advancing when user interacts with slides, or restart auto advancing when user mouses out of it
+  track.addEventListener('mouseover', () => clearInterval(interval))
+  track.addEventListener('mouseout', () => {
+    clearInterval(interval)
+    autoAdvanceSlides()
+  })
+}
+
+autoAdvanceSlides()
