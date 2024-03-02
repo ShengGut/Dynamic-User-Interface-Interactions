@@ -31,3 +31,21 @@ function toggleDropdown() {
 }
 
 toggleDropdown()
+
+// checks if html theme is light or dark and inverts the SVG icons colors
+function invertSVGColor() {
+  const isDarkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+  console.log('Is dark theme?', isDarkTheme)
+  if (isDarkTheme) {
+    const carouselButtons = document.querySelectorAll('.carousel-button')
+
+    carouselButtons.forEach((button) => {
+      const img = button.querySelector('img')
+      if (img) {
+        img.classList.add('inverted-svg')
+      }
+    })
+  }
+}
+
+invertSVGColor()
